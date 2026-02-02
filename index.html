@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Be My Valentine 💖</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            color: #ff4d6d;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .buttons {
+            margin-top: 25px;
+            position: relative;
+            height: 120px;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #yesBtn {
+            background: #ff4d6d;
+            color: white;
+        }
+
+        #noBtn {
+            background: #ccc;
+            position: absolute;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card" id="content">
+    <h1>Hey <span id="name">My Love</span> 💕</h1>
+    <p>
+        I was thinking very deeply, very seriously, using my entire brain capacity…
+        <br><br>
+        And I came to one unavoidable conclusion 😌
+    </p>
+    <h2>Would you be my Valentine? 💘</h2>
+
+    <div class="buttons">
+        <button id="yesBtn" onclick="sayYes()">YES 💖</button>
+        <button id="noBtn" onclick="runAway()">NO 😐</button>
+    </div>
+</div>
+
+<script>
+    const girlName = " HOUSSINE "; // ← change this
+    document.getElementById("name").innerText = girlName;
+
+    let noCount = 0;
+    const noBtn = document.getElementById("noBtn");
+
+    function randomPosition() {
+        const x = Math.random() * 250;
+        const y = Math.random() * 80;
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    }
+
+    randomPosition();
+
+    function runAway() {
+        noCount++;
+        randomPosition();
+
+        if (noCount >= 3) {
+            unlockDrama();
+        }
+    }
+
+    function unlockDrama() {
+        document.getElementById("content").innerHTML = `
+            <h1>Hold on ✋😌</h1>
+            <p>
+                To unlock the <b>NO</b> button, you must:
+            </p>
+            <p>
+                ✍️ Write a <b>1,000,000 word essay</b> explaining why
+            </p>
+
+            <textarea placeholder="Start writing..."></textarea>
+
+            <p><b>OR</b></p>
+
+            <button onclick="sayYes()">Just press YES instead 💖</button>
+        `;
+    }
+
+    function sayYes() {
+        document.body.innerHTML = `
+            <div class="card">
+                <h1>YAYYY 💖🎉</h1>
+                <p>
+                    Thank you for saying yes.
+                    <br><br>
+                    This isn’t just Valentine’s Day.
+                    <br>
+                    This is the start of something warmer,
+                    kinder, and better.
+                </p>
+                <p>
+                    I promise laughter, support,
+                    and a lot of moments we’ll smile about later.
+                </p>
+                <h2>Happy Valentine’s Day 💕</h2>
+            </div>
+        `;
+    }
+</script>
+
+</body>
+</html>
